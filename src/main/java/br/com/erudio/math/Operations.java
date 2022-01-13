@@ -1,7 +1,11 @@
 package br.com.erudio.math;
 
+import org.springframework.stereotype.Service;
+
 import br.com.erudio.utils.DoubleUtils;
 
+
+@Service
 public class Operations {
     
     DoubleUtils doubleUtils = new DoubleUtils();

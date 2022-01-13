@@ -1,5 +1,6 @@
 package br.com.erudio.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,8 +12,11 @@ import br.com.erudio.utils.DoubleUtils;
 @RestController
 public class MathController {
 
-    DoubleUtils doubleUtils = new DoubleUtils();
-    Operations operations = new Operations();
+    @Autowired
+    DoubleUtils doubleUtils;
+    
+    @Autowired
+    Operations operations;
 
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {

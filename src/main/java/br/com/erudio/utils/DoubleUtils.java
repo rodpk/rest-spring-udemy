@@ -1,7 +1,11 @@
 package br.com.erudio.utils;
 
+import org.springframework.stereotype.Service;
+
 import br.com.erudio.exception.UnsupportedMathOperationException;
 
+
+@Service
 public class DoubleUtils {
     public boolean isNumeric(String strNumber) {
         if (strNumber == null) return false;
