@@ -2,14 +2,36 @@ package br.com.erudio.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name = "PERSON")
 public class Person implements Serializable {
 
-    private final long serialVersionUID = 1L;
+    //private final long serialVersionUID = 1L;
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PERSON_ID")
     private Long id; 
+    
+    @Column(name = "FIRST_NAME", nullable = false, length = 80)
     private String firstName; 
+    
+    @Column(name = "LAST_NAME", nullable = false, length = 80)
     private String lastName; 
+
+    @Column(name = "ADDRESS", nullable = false, length = 100)
     private String address; 
+
+    @Column(name = "GENDER", nullable = false, length = 6)
     private String gender;
     
     
@@ -74,7 +96,6 @@ public class Person implements Serializable {
         result = prime * result + ((gender == null) ? 0 : gender.hashCode());
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-        result = prime * result + (int) (serialVersionUID ^ (serialVersionUID >>> 32));
         return result;
     }
 
@@ -112,8 +133,6 @@ public class Person implements Serializable {
             if (other.lastName != null)
                 return false;
         } else if (!lastName.equals(other.lastName))
-            return false;
-        if (serialVersionUID != other.serialVersionUID)
             return false;
         return true;
     }
