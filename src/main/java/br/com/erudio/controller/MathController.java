@@ -17,6 +17,8 @@ public class MathController {
     
     @Autowired
     Operations operations;
+    //
+    // minor add to test token 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
 
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
