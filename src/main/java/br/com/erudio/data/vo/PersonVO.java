@@ -14,15 +14,15 @@ public class PersonVO implements Serializable {
 
     private Long id; 
     
-    @JsonProperty("FIRST_NAME")
+    // @JsonProperty("FIRST_NAME")
     private String firstName; 
     
-    @JsonProperty("LAST_NAME")
+    // @JsonProperty("LAST_NAME")
     private String lastName; 
 
     private String address; 
 
-    @JsonIgnore
+    // @JsonIgnore
     private String gender;
     
     

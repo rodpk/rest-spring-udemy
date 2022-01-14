@@ -3,6 +3,7 @@ br/com/erudio/exception/UnsupportedMathOperationException.class
 br/com/erudio/math/Operations.class
 br/com/erudio/repository/PersonRepository.class
 br/com/erudio/controller/PersonController.class
+br/com/erudio/config/WebConfig.class
 br/com/erudio/services/PersonService.class
 br/com/erudio/data/model/Person.class
 br/com/erudio/exception/ExceptionResponse.class

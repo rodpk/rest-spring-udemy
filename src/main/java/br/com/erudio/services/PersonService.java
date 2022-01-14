@@ -26,9 +26,10 @@ public class PersonService {
     }
 
     public List<PersonVO> listAll() {
-        return DozerConverter.parseListObjects(personRepository.findAll(), PersonVO.class);
+        List<PersonVO> entities = DozerConverter.parseListObjects(personRepository.findAll(), PersonVO.class);
+        return entities;
     }
-
+    
     public PersonVO create(PersonVO person) {
         var entity = DozerConverter.parseObject(person, Person.class);
         var vo = DozerConverter.parseObject(personRepository.save(entity), PersonVO.class);

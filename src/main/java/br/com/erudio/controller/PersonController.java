@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.erudio.data.model.Person;
 import br.com.erudio.data.vo.PersonVO;
 import br.com.erudio.services.PersonService;
 
@@ -23,27 +24,27 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @GetMapping("/{id}")
+    @GetMapping( value = "/{id}", produces =  {"application/json", "application/xml", "application/x-yaml"})
     public PersonVO findById(@PathVariable("id") Long id) {
         return personService.findByID(id);
     }
 
-    @GetMapping
+    @GetMapping(produces =  {"application/json", "application/xml", "application/x-yaml"})
     public List<PersonVO> listAll() {
         return personService.listAll();
     }
 
-    @PostMapping
+    @PostMapping(produces =  {"application/json", "application/xml", "application/x-yaml"}, consumes = {"application/json", "application/xml", "application/x-yaml"})
     public PersonVO create(@RequestBody PersonVO person) {
         return personService.create(person);
     }
 
-    @PutMapping
+    @PutMapping(produces =  {"application/json", "application/xml", "application/x-yaml"})
     public PersonVO update(@RequestBody PersonVO person) {
         return personService.update(person);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping( "/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         personService.delete(id);
         return ResponseEntity.ok().build();

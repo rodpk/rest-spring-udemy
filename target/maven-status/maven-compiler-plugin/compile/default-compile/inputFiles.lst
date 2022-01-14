@@ -8,6 +8,7 @@
 /home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/main/java/br/com/erudio/exception/ResourceNotFoundException.java
 /home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/main/java/br/com/erudio/exception/UnsupportedMathOperationException.java
 /home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/main/java/br/com/erudio/data/model/Person.java
+/home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/main/java/br/com/erudio/config/WebConfig.java
 /home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/main/java/br/com/erudio/utils/DoubleUtils.java
 /home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/main/java/br/com/erudio/Startup.java
 /home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/main/java/br/com/erudio/repository/PersonRepository.java
