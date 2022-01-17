@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,57 +16,62 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.erudio.data.vo.PersonVO;
-import br.com.erudio.services.PersonService;
+import br.com.erudio.data.vo.BookVO;
+import br.com.erudio.services.BookService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+
+@Api(tags = "BookEndpoint")
 @RestController
-
-// enable cross origins, can define which can access
-// can be defined in an endpoint or globally in config.
-@CrossOrigin(origins = {"http://localhost:8080", "http://www.erudio.com.br"})
-@RequestMapping("/api/person/v1")
-public class PersonController {
+@RequestMapping("/api/book/v1")
+public class BookController {
 
     @Autowired
-    private PersonService personService;
+    private BookService bookService;
 
+    @ApiOperation(value = "Find book by id")
     @GetMapping(value = "/{id}", produces = { "application/json", "application/xml", "application/x-yaml" })
-    public PersonVO findById(@PathVariable("id") Long id) {
+    public BookVO findById(@PathVariable("id") Long id) {
 
-        PersonVO personVO = personService.findByID(id);
+        BookVO bookVO = bookService.findByID(id);
         // adiciona auto relacionamento
-        personVO.add(linkTo(methodOn(BookController.class).findById(id)).withSelfRel());
-        return personVO;
+        bookVO.add(linkTo(methodOn(PersonController.class).findById(id)).withSelfRel());
+        return bookVO;
     }
 
     // hateoas ta meio vago ainda..
+    @ApiOperation(value = "List all books")
     @GetMapping(produces = { "application/json", "application/xml", "application/x-yaml" })
-    public List<PersonVO> listAll() {
-        List<PersonVO> persons = personService.listAll();
-        persons.stream()
-                .forEach(p -> p.add(linkTo(methodOn(BookController.class).findById(p.getKey())).withSelfRel()));
-        return persons;
+    public List<BookVO> listAll() {
+        List<BookVO> books = bookService.listAll();
+        books.stream()
+                .forEach(p -> p.add(linkTo(methodOn(PersonController.class).findById(p.getKey())).withSelfRel()));
+        return books;
 
     }
 
+    @ApiOperation(value = "Create a new book")
     @PostMapping(produces = { "application/json", "application/xml", "application/x-yaml" }, consumes = {
             "application/json", "application/xml", "application/x-yaml" })
-    public PersonVO create(@RequestBody PersonVO person) {
-        PersonVO personVO = personService.create(person);
-        personVO.add(linkTo(methodOn(BookController.class).findById(personVO.getKey())).withSelfRel());
-        return personVO;
+    public BookVO create(@RequestBody BookVO person) {
+        BookVO bookVO = bookService.create(person);
+        bookVO.add(linkTo(methodOn(PersonController.class).findById(bookVO.getKey())).withSelfRel());
+        return bookVO;
     }
 
+    @ApiOperation(value = "Update a specific book")
     @PutMapping(produces = { "application/json", "application/xml", "application/x-yaml" })
-    public PersonVO update(@RequestBody PersonVO person) {
-        PersonVO personVO = personService.update(person);
-        personVO.add(linkTo(methodOn(BookController.class).findById(personVO.getKey())).withSelfRel());
-        return personVO;
+    public BookVO update(@RequestBody BookVO book) {
+        BookVO bookVO = bookService.update(book);
+        bookVO.add(linkTo(methodOn(PersonController.class).findById(bookVO.getKey())).withSelfRel());
+        return bookVO;
     }
 
+    @ApiOperation(value = "Delete a specific book by your ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
-        personService.delete(id);
+        bookService.delete(id);
         return ResponseEntity.ok().build();
     }
 
