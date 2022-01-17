@@ -24,7 +24,7 @@ import br.com.erudio.services.PersonService;
 
 // enable cross origins, can define which can access
 // can be defined in an endpoint or globally in config.
-@CrossOrigin(origins = {"http://localhost:8080", "http://www.erudio.com.br"})
+// @CrossOrigin(origins = {"http://localhost:8080", "http://www.erudio.com.br"})
 @RequestMapping("/api/person/v1")
 public class PersonController {
 
