@@ -26,10 +26,22 @@ public class PersonVO extends ResourceSupport implements Serializable {
 
     private String address; 
 
+    private Boolean enabled;
+    
     // @JsonIgnore
     private String gender;
     
     
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+
     public PersonVO() {}
 
 

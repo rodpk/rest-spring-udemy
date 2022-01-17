@@ -28,6 +28,8 @@ public class Person implements Serializable {
     @Column(name = "LAST_NAME", nullable = false, length = 80)
     private String lastName; 
 
+    @Column(nullable = false)
+    private Boolean enabled; 
     @Column(name = "ADDRESS", nullable = false, length = 100)
     private String address; 
 
@@ -41,6 +43,14 @@ public class Person implements Serializable {
         return id;
     }
 
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public void setId(Long id) {
         this.id = id;
