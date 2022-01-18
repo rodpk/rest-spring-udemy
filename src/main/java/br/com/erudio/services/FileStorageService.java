@@ -51,7 +51,7 @@ public class FileStorageService {
     public Resource loadFileAsResource(String filename) {
         try { 
             Path filePath = this.fileStorageLocation.resolve(filename).normalize();
-            Resource resource = new UrlResource(filePath.toUri());
+            Resource resource = new UrlResource(filePath.toUri()); // mudar aqui tambem caso mude o local que é salvo
             if (resource.exists())
                 return resource;
             throw new MyFileNotFoundException("file not found " + filename);

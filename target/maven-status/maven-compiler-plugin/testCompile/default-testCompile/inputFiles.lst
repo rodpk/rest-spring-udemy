@@ -1,2 +1,2 @@
-/home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/test/java/br/com/eridio/converter/mocks/MockPerson.java
-/home/rodpk/eclipse-workspace/workspace-udemy/rest-with-spring-boot-udemy/src/test/java/br/com/eridio/converter/DozerConverterTest.java
+/RestWithSpringBootUdemy/src/test/java/br/com/eridio/converter/DozerConverterTest.java
+/RestWithSpringBootUdemy/src/test/java/br/com/eridio/converter/mocks/MockPerson.java
