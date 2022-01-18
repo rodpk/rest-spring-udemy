@@ -15,6 +15,8 @@ import br.com.erudio.config.FileStorageConfig;
 @ComponentScan // diz que deve scanear os pacotes e encontrar arquivos de configuracao como o WebConfig
 public class Startup {
 
+
+    // comment just to commit something
     public static void main(String[] args) {
         SpringApplication.run(Startup.class, args);
 
