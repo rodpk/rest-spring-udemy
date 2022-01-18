@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   db:
-    image: leandrocgsi/mysql-rest-with-spring-boot-udemy
+    image: yahatak/mysql-rest-with-spring-boot-udemy
     command: mysqld --default-authentication-plugin=mysql_native_password
     restart: always
     build:
@@ -18,7 +18,7 @@ services:
     networks:
       - udemy-network
   rest-with-spring-boot-udemy:
-    image: leandrocgsi/rest-with-spring-boot-udemy
+    image: yahatak/rest-with-spring-boot-udemy
     restart: always
     build: ./RestWithSpringBootUdemy
     working_dir: /RestWithSpringBootUdemy
