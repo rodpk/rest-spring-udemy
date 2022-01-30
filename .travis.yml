@@ -1,19 +1,19 @@
-language: bash
-services: docker
-before_install:
-  - cd RestWithSpringBootUdemy
-  - echo "We are in the Docker folder!"
-script:
-  - docker-compose build
-before_deploy:
-  - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
-deploy:
-  provider: script
-  script:
-    docker push yahatak/mysql-rest-with-spring-boot-udemy;
-    docker push yahatak/rest-with-spring-boot-udemy;
-  on:
-    branch: main
-  notifications:
-    email: false
+# language: bash
+# services: docker
+# before_install:
+#   - cd RestWithSpringBootUdemy
+#   - echo "We are in the Docker folder!"
+# script:
+#   - docker-compose build
+# before_deploy:
+#   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+# deploy:
+#   provider: script
+#   script:
+#     docker push yahatak/mysql-rest-with-spring-boot-udemy;
+#     docker push yahatak/rest-with-spring-boot-udemy;
+#   on:
+#     branch: main
+#   notifications:
+#     email: false
     
